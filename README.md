@@ -5,7 +5,7 @@
 ---
 
 ## 🧩 프로젝트 구조
-
+```
 C:.
 │ .env
 │ .gitignore
@@ -42,18 +42,16 @@ C:.
 index.faiss
 index.pkl
 
-yaml
-복사
-편집
+```
 
 ---
 
 ## ⚙️ 설치 및 실행 방법
 
 ### 1. 패키지 설치
-
-```bash
+```
 pip install -r requirements.txt
+```
 2. 데이터 수집 및 전처리
 bash
 복사
@@ -62,23 +60,19 @@ python run_pipeline.py
 data_pipeline/gov/ 모듈들이 실행되어 혜택 데이터를 수집 및 병합합니다.
 
 3. 벡터 인덱스 생성
-bash
-복사
-편집
+```
 python build_faiss.py
+```
 혜택 텍스트 데이터가 임베딩되어 FAISS 인덱스로 저장됩니다.
 
 4. FastAPI 앱 실행
-bash
-복사
-편집
+```
 uvicorn app.main:app --reload
 http://127.0.0.1:8000/docs에서 Swagger UI 확인 가능
+```
 
 🧠 시스템 아키텍처
-css
-복사
-편집
+```
 [공공데이터 API] ──▶ [데이터 파이프라인] ──▶ [혜택 JSON 저장]
                                                │
                                                ▼
@@ -88,7 +82,7 @@ css
                   ▼
 [사용자 입력] ──▶ [조건 기반 필터링] ──▶ [RAG 벡터 검색 + LLM 응답]
 조건 필터링: 나이, 지역, 소득 등 조건 기반 혜택 필터링
-
+```
 RAG 구조: ko-SBERT 임베딩 + FAISS 벡터 검색 + GPT 모델 응답
 
 LLM 응답 생성: 유사 문서 기반 자연어 질의 대응
@@ -116,10 +110,5 @@ LLM	OpenAI GPT (또는 Upstage Solar)
 
 Github
 
-yaml
-복사
-편집
 
 ---
-
-필요하면 `.env 예시`, API 응답 샘플, 또는 Swagger 사용법도 확장해서 넣어드릴 수 있습니다. 더 추가할 내용 있을까
